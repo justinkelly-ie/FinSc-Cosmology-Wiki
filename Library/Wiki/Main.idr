@@ -9,8 +9,8 @@ import Core.Goh
 
 %default total
 
-0 prfGaloisIdentity : gamma (the (MetricalEnvelope 3 Elliptic AbstractDomain) (alpha (pure (MkConcrete (intToBoxInt 100))))) = pure (MkConcrete (intToBoxInt 100))
-prfGaloisIdentity = Math.Cosmology.GaloisAdjunction.verifyGaloisIdentity (pure (MkConcrete (intToBoxInt 100)))
+0 prfGaloisIdentity : gamma (the (MetricalEnvelope 3 Elliptic AbstractDomain) (alpha (pure (MkConcrete 100)))) = pure (MkConcrete 100)
+prfGaloisIdentity = Math.Cosmology.GaloisAdjunction.verifyGaloisIdentity (pure (MkConcrete 100))
 
 0 prfCosmicBudget : (Math.Cosmology.MacroEnvelope.verifyCosmicMassBudget = Refl)
 prfCosmicBudget = Refl
