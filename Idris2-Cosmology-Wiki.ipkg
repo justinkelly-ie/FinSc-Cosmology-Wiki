@@ -4,6 +4,8 @@ authors = "Justin Kelly"
 brief   = "Layer 9 Galois Adjunctions & Macro Cosmology Verification Suite"
 
 depends = base
+        , contrib
+        , idris2-QuickCheck
         , Idris2-Multiset-Core
         , Idris2-Multiset-Transform
         , Idris2-Geometry
@@ -17,6 +19,9 @@ depends = base
 sourcedir = "Library"
 
 modules = Wiki.Main
+        , Wiki.Generators
+        , Wiki.GaloisAdjunctionSpec
+        , Wiki.MacroEnvelopeSpec
 
 main = Wiki.Main
 executable = lcosmology-wiki

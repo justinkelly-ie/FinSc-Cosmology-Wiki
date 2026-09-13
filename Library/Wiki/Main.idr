@@ -6,6 +6,8 @@ import Math.Cosmology.GaloisAdjunction
 import Math.Cosmology.MacroEnvelope
 import Core.BoxInt
 import Core.Goh
+import Wiki.GaloisAdjunctionSpec
+import Wiki.MacroEnvelopeSpec
 
 %default total
 
@@ -26,7 +28,16 @@ main = do
   putStrLn "  [TEST 1] Galois Adjunction (α ⊣ γ) Abstraction Duality: PASSED ✅"
   putStrLn "  [TEST 2] Macro Cosmological Mass Budget Preservation: PASSED ✅"
   putStrLn "  [TEST 3] Dynamic Galois Pullback Coarse-Graining Mass Invariance: PASSED ✅"
+  putStrLn "--------------------------------------------------------"
+  putStrLn " 🌌 IDRIS2-QUICKCHECK GENERATIVE PROPERTY SUITES 🌌"
+  putStrLn "--------------------------------------------------------"
+  p1 <- auditGaloisAdjunctionSpecProof
+  putStrLn $ "  [TEST 4] Galois Adjunction Abstraction Duality (QuickCheck): " ++ (if p1 then "PASSED ✅" else "FAILED ❌")
+  p2 <- auditMacroEnvelopeSpecProof
+  putStrLn $ "  [TEST 5] Primorial 210 Budget & Metrical Coarse-Graining (QuickCheck): " ++ (if p2 then "PASSED ✅" else "FAILED ❌")
   putStrLn "========================================================"
-  putStrLn " Layer 9 Galois Adjunctions & Macro Cosmology Audit Complete."
+  if p1 && p2
+     then putStrLn " ✨ ALL LAYER 9 GALOIS & COSMOLOGY SUITES PASSED ✨"
+     else putStrLn " ❌ LAYER 9 VERIFICATION FAILED"
   putStrLn "========================================================"
 
