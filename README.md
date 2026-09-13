@@ -24,5 +24,5 @@ This repository contains the executable wiki specifications, QuickCheck property
 To build and run the complete Layer 9 test suite inside `fedora-toolbox-44`:
 
 ```bash
-toolbox run -c fedora-toolbox-44 bash -c "cd /var/home/justin/Projects/Idris2-Cosmology && idris2 --install Idris2-Cosmology.ipkg && cd /var/home/justin/Projects/Idris2-Cosmology-Wiki && idris2 --build Idris2-Cosmology-Wiki.ipkg && ./build/exec/lcosmology-wiki"
+toolbox run -c fedora-toolbox-44 bash -c "cd /var/home/justin/Projects/Idris2-Cosmology && idris2 --install Idris2-Cosmology.ipkg && cd /var/home/justin/Projects/Idris2-Cosmology-Wiki && idris2 --build Idris2-Cosmology-Wiki.ipkg && ./build/exec/cosmology-wiki"
 ```
