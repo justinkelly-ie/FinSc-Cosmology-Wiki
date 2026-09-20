@@ -38,10 +38,43 @@ import Geometry.Applicative
 import Geometry.MetricalBounds
 import Math.Cosmology.GaloisAdjunction
 import Math.Cosmology.MacroEnvelope
+import Math.OnSeq.FusedStream
+import Data.Fuel
 import Wiki.Generators
 import public QuickCheck
 
 %default total
+
+||| Erased compile-time witness verifying primorial 210 cosmic mass budget closure (vm + de + dm = 210)
+public export
+0 CosmicBudgetClosureWitness : (vm : Nat) -> (de : Nat) -> (dm : Nat) -> Type
+CosmicBudgetClosureWitness vm de dm = (vm + de + dm) = 210
+
+||| Static compile-time witness proving primorial 210 mass budget closure (27 + 128 + 55 = 210)
+public export
+prfCosmicBudgetClosure : CosmicBudgetClosureWitness 27 128 55
+prfCosmicBudgetClosure = Refl
+
+||| Verified cosmic budget state carrying erased budget closure witness
+public export
+record VerifiedCosmicBudgetState where
+  constructor MkVerifiedCosmicBudgetState
+  vmMass : Nat
+  deMass : Nat
+  dmMass : Nat
+  0 closurePrf : CosmicBudgetClosureWitness vmMass deMass dmMass
+
+||| $O(1)$ allocation deforested cosmic mass budget stream transducer using fusedHylomorphism
+public export covering
+fusedCosmicMassBudgetStream : Fuel -> List (Nat, Nat, Nat) -> Nat
+fusedCosmicMassBudgetStream f items =
+  fusedHylomorphism f
+    (\st => case st of
+              [] => Done
+              (vm, de, dm) :: rest => Yield (vm + de + dm) rest)
+    (\val, acc => val + acc)
+    0
+    items
 
 ||| 1. Primorial 210 Cosmic Mass Budget: computeTotalCosmicMass initMacroCosmicEnvelope == 210
 public export
@@ -79,5 +112,6 @@ auditMacroEnvelopeSpecProof = do
   let r1 = prop_cosmicMassBudget
   let r2 = prop_starFormationAllowed
   let r3 = qc prop_metricalCoarseGrainMass
-  pure (r1 && r2 && r3.pass == Just True)
+  let streamSum = fusedCosmicMassBudgetStream (limit 100) [(27, 128, 55)]
+  pure (r1 && r2 && r3.pass == Just True && streamSum == 210)
 ```
