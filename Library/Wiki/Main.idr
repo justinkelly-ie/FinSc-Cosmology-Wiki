@@ -11,7 +11,7 @@ import Wiki.MacroEnvelopeSpec
 
 %default total
 
-0 prfGaloisIdentity : gamma (the (MetricalEnvelope 3 Elliptic AbstractDomain) (alpha (pure (MkConcrete 100)))) = pure (MkConcrete 100)
+0 prfGaloisIdentity : gammaEnvelope (the (MetricalEnvelope 3 Elliptic AbstractDomain) (alphaEnvelope (pure (MkConcrete 100)))) = pure (MkConcrete 100)
 prfGaloisIdentity = Math.Cosmology.GaloisAdjunction.verifyGaloisIdentity (pure (MkConcrete 100))
 
 0 prfCosmicBudget : (Math.Cosmology.MacroEnvelope.verifyCosmicMassBudget = Refl)

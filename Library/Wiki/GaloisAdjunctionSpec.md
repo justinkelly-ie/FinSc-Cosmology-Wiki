@@ -37,13 +37,13 @@ public export
 prop_galoisDuality : ConcreteDomain -> Bool
 prop_galoisDuality (MkConcrete c) =
   let env : MetricalEnvelope 3 Elliptic ConcreteDomain = pure (MkConcrete c)
-      env' = gamma (the (MetricalEnvelope 3 Elliptic AbstractDomain) (alpha env))
+      env' = gammaEnvelope (the (MetricalEnvelope 3 Elliptic AbstractDomain) (alphaEnvelope env))
   in env' == env
 
 ||| Static Compile-Time Proof Witness Verification
 public export
 0 prfStaticGaloisIdentity : (c : MetricalEnvelope 3 Elliptic ConcreteDomain) -> 
-                             gamma (the (MetricalEnvelope 3 Elliptic AbstractDomain) (alpha c)) = c
+                             gammaEnvelope (the (MetricalEnvelope 3 Elliptic AbstractDomain) (alphaEnvelope c)) = c
 prfStaticGaloisIdentity c = verifyGaloisIdentity c
 
 ||| QuickCheck Execution Runner for Galois Adjunction Suite
