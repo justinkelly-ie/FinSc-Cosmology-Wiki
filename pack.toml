@@ -1,0 +1,29 @@
+[package]
+name = "Idris2-Cosmology-Wiki"
+version = "0.1.0"
+ipkg = "Idris2-Cosmology-Wiki.ipkg"
+
+[custom.all.Idris2-Multiset-Core]
+type = "local"
+path = "../Idris2-Multiset-Core"
+ipkg = "Idris2-Multiset-Core.ipkg"
+
+[custom.all.Idris2-Multiset-Transform]
+type = "local"
+path = "../Idris2-Multiset-Transform"
+ipkg = "Idris2-Multiset-Transform.ipkg"
+
+[custom.all.Idris2-Geometry]
+type = "local"
+path = "../Idris2-Geometry"
+ipkg = "Idris2-Geometry.ipkg"
+
+[custom.all.Idris2-Cosmology]
+type = "local"
+path = "../Idris2-Cosmology"
+ipkg = "Idris2-Cosmology.ipkg"
+
+[custom.all.idris2-QuickCheck]
+type = "local"
+path = "../idris2-QuickCheck"
+ipkg = "idris2-QuickCheck.ipkg"
