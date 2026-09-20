@@ -2,6 +2,7 @@ module Wiki.Generators
 
 import public QuickCheck
 import Core.BoxInt
+import Core.VexelMaxel
 import Math.Cosmology.GaloisAdjunction
 import Math.Cosmology.MacroEnvelope
 
@@ -23,14 +24,13 @@ Arbitrary AbstractDomain where
   coarbitrary (MkAbstract a) gen = coarbitrary a gen
 
 public export
-Arbitrary MacroCosmicEnvelope where
-  arbitrary = do
-    s <- arbitrary
-    b <- arbitrary
-    d <- arbitrary
-    c <- arbitrary
-    pure (MkMacroCosmic s b d c)
-  coarbitrary (MkMacroCosmic s b d c) gen = coarbitrary s (coarbitrary b (coarbitrary d (coarbitrary c gen)))
+genMacroCosmicVexel : Gen Vexel
+genMacroCosmicVexel = do
+  s <- arbitrary
+  b <- arbitrary
+  d <- arbitrary
+  c <- arbitrary
+  pure (macroCosmicVexel s b d c)
 
 public export
 qc : (Arbitrary a, Show a, Testable prop) => (a -> prop) -> QCRes
