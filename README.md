@@ -1,6 +1,6 @@
-# 📘 Idris2-Cosmology-Wiki (Layer 9 Specification & Verification)
+# 📘 FinSc-Cosmology-Wiki (Layer 9 Specification & Verification)
 
-This repository contains the executable wiki specifications, QuickCheck property suites, and formal proof witnesses for **Layer 9** (`Idris2-Cosmology`).
+This repository contains the executable wiki specifications, QuickCheck property suites, and formal proof witnesses for **Layer 9** (`FinSc-Cosmology`).
 
 ---
 
@@ -24,5 +24,5 @@ This repository contains the executable wiki specifications, QuickCheck property
 To build and run the complete Layer 9 test suite inside `fedora-toolbox-44`:
 
 ```bash
-toolbox run -c fedora-toolbox-44 bash -c "cd /var/home/justin/Projects/Idris2-Cosmology && idris2 --install Idris2-Cosmology.ipkg && cd /var/home/justin/Projects/Idris2-Cosmology-Wiki && idris2 --build Idris2-Cosmology-Wiki.ipkg && ./build/exec/cosmology-wiki"
+toolbox run -c fedora-toolbox-44 bash -c "cd /var/home/justin/Projects/FinSc-Cosmology && idris2 --install FinSc-Cosmology.ipkg && cd /var/home/justin/Projects/FinSc-Cosmology-Wiki && idris2 --build FinSc-Cosmology-Wiki.ipkg && ./build/exec/cosmology-wiki"
 ```

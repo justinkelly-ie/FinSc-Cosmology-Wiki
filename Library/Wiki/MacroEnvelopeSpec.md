@@ -19,7 +19,7 @@ Documents and verifies macro-scale cosmological fluid envelopes (`MacroCosmicEnv
 
 ## 2. Mathematical Foundation & Cosmological Invariants
 
-Layer 9 `Idris2-Cosmology` models macro cosmological fluid dynamics over discrete `Vexel` multiset states:
+Layer 9 `FinSc-Cosmology` models macro cosmological fluid dynamics over discrete `Vexel` multiset states:
 
 1. **Primorial 210 Mass Budget**: $M_{\text{Total}} = B(27) + D(55) + C(128) = 210$
 2. **Jeans Mass Star Formation Threshold**: $B \ge 27$

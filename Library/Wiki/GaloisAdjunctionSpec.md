@@ -6,7 +6,7 @@ Documents and verifies Galois Adjunction ($\alpha \dashv \gamma$) between fine-g
 
 ## 1. Mathematical Foundation & Galois Duality
 
-Layer 9 `Idris2-Cosmology` constructs multi-scale abstraction structures:
+Layer 9 `FinSc-Cosmology` constructs multi-scale abstraction structures:
 
 1. **Galois Abstraction Map ($\alpha$)**: $\text{ConcreteDomain} \to \text{AbstractDomain}$
 2. **Galois Concretization Map ($\gamma$)**: $\text{AbstractDomain} \to \text{ConcreteDomain}$
