@@ -6,10 +6,10 @@ This repository contains the executable wiki specifications, QuickCheck property
 
 ## 📚 Literate Specifications & Property Suites
 
-- **[`GaloisAdjunctionSpec.md`](Library/Wiki/GaloisAdjunctionSpec.md):** 
-  - Verifies Galois Adjunction ($\alpha \dashv \gamma$) abstraction duality ($\gamma(\alpha(c)) \equiv c$).
+- **[`ScaleAdjunctionSpec.md`](Library/Wiki/ScaleAdjunctionSpec.md):** 
+  - Verifies Multiset Scale Adjunction ($f_* \dashv f^*$) abstraction duality ($\gamma(\alpha(c)) \equiv c$).
   - Verifies widening operator monotonicity and isometric metric preservation under scale expansion.
-  - Includes static proof witness `prfStaticGaloisIdentity`.
+  - Includes static proof witness `prfStaticScaleAdjunctionIdentity`.
 
 - **[`MacroEnvelopeSpec.md`](Library/Wiki/MacroEnvelopeSpec.md):** 
   - Verifies Primorial 210 mass budget conservation ($27 \text{ Baryon} + 55 \text{ Dark} + 128 \text{ H}_2\text{O} = 210$).

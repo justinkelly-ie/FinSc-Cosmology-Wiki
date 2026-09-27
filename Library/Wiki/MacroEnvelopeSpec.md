@@ -32,13 +32,13 @@ Layer 9 `FinSc-Cosmology` models macro cosmological fluid dynamics over discrete
 ```idris
 module Wiki.MacroEnvelopeSpec
 
-import Core.BoxInt
-import Core.VexelMaxel
-import Geometry.Applicative
-import Geometry.MetricalBounds
-import Math.Cosmology.GaloisAdjunction
-import Math.Cosmology.MacroEnvelope
-import Math.OnSeq.FusedStream
+import Stage0.BoxInt
+import Stage1.VexelMaxel
+import Stage0.Applicative
+import Stage1.MetricalBounds
+import Stage1.Cosmology.MultisetAdjunction
+import Stage1.Cosmology.MacroEnvelope
+import Stage0.OnSeq.FusedStream
 import Data.Fuel
 import Wiki.Generators
 import public QuickCheck
@@ -98,11 +98,11 @@ prop_metricalCoarseGrainMass (MkConcrete c) =
 
 ||| Static Compile-Time Proof Witness Verification
 public export
-0 prfStaticCosmicBudget : computeTotalCosmicMass Math.Cosmology.MacroEnvelope.initMacroCosmicEnvelope = intToBoxInt 210
+0 prfStaticCosmicBudget : computeTotalCosmicMass Stage1.Cosmology.MacroEnvelope.initMacroCosmicEnvelope = intToBoxInt 210
 prfStaticCosmicBudget = verifyCosmicMassBudget
 
 public export
-0 prfStaticCoarseGrainMass : computeTotalCosmicMass Math.Cosmology.MacroEnvelope.initMacroCosmicEnvelope = intToBoxInt 210
+0 prfStaticCoarseGrainMass : computeTotalCosmicMass Stage1.Cosmology.MacroEnvelope.initMacroCosmicEnvelope = intToBoxInt 210
 prfStaticCoarseGrainMass = verifyMetricalCoarseGrainPreservesMass
 
 ||| QuickCheck Execution Runner for Macro Envelope Suite

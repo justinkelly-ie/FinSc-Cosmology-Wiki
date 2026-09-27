@@ -1,10 +1,10 @@
 module Wiki.Generators
 
 import public QuickCheck
-import Core.BoxInt
-import Core.VexelMaxel
-import Math.Cosmology.GaloisAdjunction
-import Math.Cosmology.MacroEnvelope
+import Stage0.BoxInt
+import Stage1.VexelMaxel
+import Stage1.Cosmology.MultisetAdjunction
+import Stage1.Cosmology.MacroEnvelope
 
 %default total
 

@@ -1,12 +1,12 @@
 package FinSc-Cosmology-Wiki
 version = 0.1.0
 authors = "Justin Kelly"
-brief   = "Layer 9 Galois Adjunctions & Macro Cosmology Verification Suite"
+brief   = "Layer 9 Multiset Scale Adjunctions & Macro Cosmology Verification Suite"
 
 depends = FinSc-Cosmology, FinSc-Geometry, FinSc-Multiset-Core, FinSc-Multiset-Transform, base, idris2-QuickCheck, linear
 sourcedir = "Library"
 
-modules = Wiki.GaloisAdjunctionSpec,
+modules = Wiki.ScaleAdjunctionSpec,
           Wiki.Generators,
           Wiki.MacroEnvelopeSpec,
           Wiki.Main
