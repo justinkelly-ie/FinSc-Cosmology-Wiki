@@ -14,11 +14,11 @@ import Wiki.MacroEnvelopeSpec
 0 prfScaleAdjunctionIdentity : gammaEnvelope (the (MetricalEnvelope 3 Elliptic AbstractDomain) (alphaEnvelope (pure (MkConcrete 100)))) = pure (MkConcrete 100)
 prfScaleAdjunctionIdentity = Stage1.Cosmology.MultisetAdjunction.verifyGaloisIdentity (pure (MkConcrete 100))
 
-0 prfCosmicBudget : (Stage1.Cosmology.MacroEnvelope.verifyCosmicMassBudget = Refl)
-prfCosmicBudget = Refl
+0 prfCosmicBudget : computeTotalCosmicMass Stage1.Cosmology.MacroEnvelope.initMacroCosmicEnvelope = intToBoxInt 210
+prfCosmicBudget = Stage1.Cosmology.MacroEnvelope.verifyCosmicMassBudget
 
-0 prfCoarseGrainMass : (Stage1.Cosmology.MacroEnvelope.verifyMetricalCoarseGrainPreservesMass = Refl)
-prfCoarseGrainMass = Refl
+0 prfCoarseGrainMass : computeTotalCosmicMass Stage1.Cosmology.MacroEnvelope.initMacroCosmicEnvelope = intToBoxInt 210
+prfCoarseGrainMass = Stage1.Cosmology.MacroEnvelope.verifyMetricalCoarseGrainPreservesMass
 
 main : IO ()
 main = do

@@ -3,7 +3,7 @@ version = 0.1.0
 authors = "Justin Kelly"
 brief   = "Layer 9 Multiset Scale Adjunctions & Macro Cosmology Verification Suite"
 
-depends = FinSc-Cosmology, FinSc-Geometry, FinSc-Multiset-Core, FinSc-Multiset-Transform, base, idris2-QuickCheck, linear
+depends = FinSc-Cosmology, FinSc-Geometry, FinSc-Multiset, FinSc-Metric-Substrate, FinSc-Phase-Unfolding, base, idris2-QuickCheck, linear
 sourcedir = "Library"
 
 modules = Wiki.ScaleAdjunctionSpec,
