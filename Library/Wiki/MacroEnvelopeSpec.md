@@ -64,17 +64,11 @@ record VerifiedCosmicBudgetState where
   dmMass : Nat
   0 closurePrf : CosmicBudgetClosureWitness vmMass deMass dmMass
 
-||| $O(1)$ allocation deforested cosmic mass budget stream transducer using fusedHylomorphism
-public export covering
+||| $O(1)$ allocation deforested cosmic mass budget stream transducer using foldStreamNat
+public export
 fusedCosmicMassBudgetStream : Fuel -> List (Nat, Nat, Nat) -> Nat
-fusedCosmicMassBudgetStream f items =
-  fusedHylomorphism f
-    (\st => case st of
-              [] => Done
-              (vm, de, dm) :: rest => Yield (vm + de + dm) rest)
-    (\val, acc => val + acc)
-    0
-    items
+fusedCosmicMassBudgetStream _ items =
+  foldStreamNat (length items) (\acc, (vm, de, dm) => acc + vm + de + dm) 0 (stream items)
 
 ||| 1. Primorial 210 Cosmic Mass Budget: computeTotalCosmicMass initMacroCosmicEnvelope == 210
 public export

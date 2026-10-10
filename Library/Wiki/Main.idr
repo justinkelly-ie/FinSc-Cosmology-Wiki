@@ -6,10 +6,18 @@ import Stage1.Cosmology.MultisetAdjunction
 import Stage1.Cosmology.MacroEnvelope
 import Stage0.BoxInt
 import Stage1.Goh
+import Language.Reflection
+import Reflect.CosmicHorizonAuditor
 import Wiki.ScaleAdjunctionSpec
 import Wiki.MacroEnvelopeSpec
 
 %default total
+
+public export
+%macro
+auditInvariant : (prop : Bool) -> Elab (prop = True)
+auditInvariant True = pure Refl
+auditInvariant False = fail "Compile-time invariant audit failed!"
 
 0 prfScaleAdjunctionIdentity : gammaEnvelope (the (MetricalEnvelope 3 Elliptic AbstractDomain) (alphaEnvelope (pure (MkConcrete 100)))) = pure (MkConcrete 100)
 prfScaleAdjunctionIdentity = Stage1.Cosmology.MultisetAdjunction.verifyGaloisIdentity (pure (MkConcrete 100))
@@ -19,6 +27,15 @@ prfCosmicBudget = Stage1.Cosmology.MacroEnvelope.verifyCosmicMassBudget
 
 0 prfCoarseGrainMass : computeTotalCosmicMass Stage1.Cosmology.MacroEnvelope.initMacroCosmicEnvelope = intToBoxInt 210
 prfCoarseGrainMass = Stage1.Cosmology.MacroEnvelope.verifyMetricalCoarseGrainPreservesMass
+
+0 auditCosmicBudgetWitness : Reflect.CosmicHorizonAuditor.auditCosmicBudgetConservationProof = True
+auditCosmicBudgetWitness = auditCosmicBudgetConservation
+
+0 auditHorizonBoundaryAreaWitness : Reflect.CosmicHorizonAuditor.auditHorizonBoundaryAreaProof = True
+auditHorizonBoundaryAreaWitness = auditHorizonBoundaryArea
+
+0 auditHolographicAreaBoundWitness : Reflect.CosmicHorizonAuditor.auditHolographicAreaBoundProof = True
+auditHolographicAreaBoundWitness = auditHolographicAreaBound
 
 main : IO ()
 main = do
