@@ -39,6 +39,7 @@ import Stage1.MetricalBounds
 import Stage1.Cosmology.MultisetAdjunction
 import Stage1.Cosmology.MacroEnvelope
 import Stage0.OnSeq.FusedStream
+import Stage0.StructuralFuel
 import Data.Fuel
 import Wiki.Generators
 import public QuickCheck
@@ -64,11 +65,11 @@ record VerifiedCosmicBudgetState where
   dmMass : Nat
   0 closurePrf : CosmicBudgetClosureWitness vmMass deMass dmMass
 
-||| $O(1)$ allocation deforested cosmic mass budget stream transducer using foldStreamNat
+||| $O(1)$ allocation deforested cosmic mass budget stream transducer using foldStreamNat and model-indexed GohFuel
 public export
-fusedCosmicMassBudgetStream : Fuel -> List (Nat, Nat, Nat) -> Nat
-fusedCosmicMassBudgetStream _ items =
-  foldStreamNat (length items) (\acc, (vm, de, dm) => acc + vm + de + dm) 0 (stream items)
+fusedCosmicMassBudgetStream : GohFuel cap -> List (Nat, Nat, Nat) -> Nat
+fusedCosmicMassBudgetStream fuel items =
+  foldStreamNat (gohSteps fuel) (\acc, (vm, de, dm) => acc + vm + de + dm) 0 (stream items)
 
 ||| 1. Primorial 210 Cosmic Mass Budget: computeTotalCosmicMass initMacroCosmicEnvelope == 210
 public export
@@ -106,6 +107,6 @@ auditMacroEnvelopeSpecProof = do
   let r1 = prop_cosmicMassBudget
   let r2 = prop_starFormationAllowed
   let r3 = qc prop_metricalCoarseGrainMass
-  let streamSum = fusedCosmicMassBudgetStream (limit 100) [(27, 128, 55)]
+  let streamSum = fusedCosmicMassBudgetStream masterSubstrateGohFuelModel [(27, 128, 55)]
   pure (r1 && r2 && r3.pass == Just True && streamSum == 210)
 ```
