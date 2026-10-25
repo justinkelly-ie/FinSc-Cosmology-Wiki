@@ -33,7 +33,7 @@ Layer 9 `FinSc-Cosmology` models macro cosmological fluid dynamics over discrete
 module Wiki.MacroEnvelopeSpec
 
 import Stage0.BoxInt
-import Stage1.VexelMaxel
+import Stage1.Carrier.Vexel
 import Stage0.Applicative
 import Stage1.MetricalBounds
 import Stage1.Cosmology.MultisetAdjunction
